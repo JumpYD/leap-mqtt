@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/JumpYD/leap-mqtt/issues"
   },
-  "homepage": "https://github.com/JumpYD/leap-mqtt"
+  "homepage": "https://github.com/JumpYD/leap-mqtt",
+  "dependencies": {
+    "mqtt": "^1.1.0",
+    "leap": "^0.1.3"
+  }
 }

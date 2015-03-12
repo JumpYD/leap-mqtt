@@ -10,25 +10,20 @@ $ npm install leap-mqtt
   
 ## Useage
 ```js
-Leap = require("leapjs");
-var mqtt  = require('mqtt');
-var client  = mqtt.connect('mqtt://MQTTSERVER:PORT');
-var controller = new Leap.Controller()
-
-controller.connect();
-controller.on("frame", function(frame) {
-  client.publish('LEAP','00||'+frame);
-}
+var LM=require('./index.js');
+	Leap2Mqtt=LM.LeapMqtt;
+var client = LM.getClient('mqtt://MQTTSERVER:PORT');
+var controller = LM.getController();
+	controller.connect();
+Leap2Mqtt.sendgesture(client,controller);
 
 ```
+
 ```js
-var mqtt=require('mqtt');
-var client  = mqtt.connect('mqtt://MQTTSERVER:PORT');
-client.subscribe('LEAP');
-client.on('message',function(topic,data){
-	var json=data.toString().split('|');
-	if(json[0]=='00'){
-		console.log(JSON.parse(json[2]));
-	}
-});
+var LM=require('./index.js');
+	Mqtt_Leap=LM.MqttLeap;
+var client2 = LM.getClient('mqtt://MQTTSERVER:PORT');
+	client2.subscribe('LEAP');
+Mqtt_Leap.getgesture(client2);
+
 ```

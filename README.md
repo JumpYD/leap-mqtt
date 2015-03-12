@@ -21,3 +21,14 @@ controller.on("frame", function(frame) {
 }
 
 ```
+```js
+var mqtt=require('mqtt');
+var client  = mqtt.connect('mqtt://MQTTSERVER:PORT');
+client.subscribe('LEAP');
+client.on('message',function(topic,data){
+	var json=data.toString().split('|');
+	if(json[0]=='00'){
+		console.log(JSON.parse(json[2]));
+	}
+});
+```

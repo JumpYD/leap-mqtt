@@ -10,7 +10,7 @@ $ npm install leap-mqtt
   
 ## Useage
 ```js
-var LM=require('./index.js');
+var LM=require('leap-mqtt');
 	Leap2Mqtt=LM.LeapMqtt;
 var client = LM.getClient('mqtt://MQTTSERVER:PORT');
 var controller = LM.getController();
@@ -20,7 +20,7 @@ Leap2Mqtt.sendgesture(client,controller);
 ```
 
 ```js
-var LM=require('./index.js');
+var LM=require('leap-mqtt');
 	Mqtt_Leap=LM.MqttLeap;
 var client2 = LM.getClient('mqtt://MQTTSERVER:PORT');
 	client2.subscribe('LEAP');

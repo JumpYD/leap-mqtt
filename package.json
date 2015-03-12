@@ -1,20 +1,23 @@
 {
   "name": "leap-mqtt",
-  "version": "0.0.1",
-  "description": "This is a nodejs module for grasping gesture data from LeapMotion devices,and then send these data to mqtt servers ",
-  "main": "leap_mqtt.js",
-  "dependencies": {
-    "leapjs": "~0.6.4",
-    "mqtt": "~1.1.0"
-  },
-  "devDependencies": {},
+  "version": "1.0.0",
+  "description": "This is a nodejs module for grasping gesture data from LeapMotion devices,and then send these data to mqtt servers",
+  "main": "index.js",
   "scripts": {
-    "test": "node leap_mqtt.js"
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JumpYD/leap-mqtt.git"
   },
   "keywords": [
-    "mqtt",
-    "leap"
+    "leap",
+    "mqtt"
   ],
   "author": "Gavin.Xu",
-  "license": "BSD-2-Clause"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JumpYD/leap-mqtt/issues"
+  },
+  "homepage": "https://github.com/JumpYD/leap-mqtt"
 }

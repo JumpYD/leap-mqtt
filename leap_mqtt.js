@@ -11,10 +11,7 @@ exports.sendgesture = function (client,controller,channel) {
                         pregesture = frame.data.gestures[i].type;
                         client.publish(channel, '00||' + '{"name":"' + dev + '","dev":"leap","time":"' + frame.timestamp + '","type":"gesture","gesture":{"name":"' + frame.data.gestures[i].type + '","edge":"' + frame.data.gestures[i].state + '"}}');
                         //console.log('00||' + '{"name":"' + dev + '","dev":"leap","time":"' + frame.timestamp + '","type":"gesture","gesture":{"name":"' + frame.data.gestures[i].type + '","edge":"' + frame.data.gestures[i].state + '"}}');
-                    } else if (parseFloat(frame.timestamp) - parseFloat(pretimestamp) < 500000) {
-                        pretimestamp = frame.timestamp;
-                        pregesture = frame.data.gestures[i].type;
-                    } else if (pregesture !== frame.data.gestures[i].type || parseFloat(frame.timestamp) - parseFloat(pretimestamp) > 2000000 || frame.data.gestures[i].state == 'stop') {
+                    } else if (pregesture !== frame.data.gestures[i].type || parseFloat(frame.timestamp) - parseFloat(pretimestamp) > 1000000 || frame.data.gestures[i].state == 'stop') {
                         client.publish(channel, '00||' + '{"name":"' + dev + '","dev":"leap","time":"' + frame.timestamp + '","type":"gesture","gesture":{"name":"' + frame.data.gestures[i].type + '","edge":"' + frame.data.gestures[i].state + '"}}');
                         //console.log('00||' + '{"name":"' + dev + '","dev":"leap","time":"' + frame.timestamp + '","type":"gesture","gesture":{"name":"' + frame.data.gestures[i].type + '","edge":"' + frame.data.gestures[i].state + '"}}');
                         pretimestamp = frame.timestamp;
